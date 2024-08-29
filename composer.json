@@ -8,7 +8,7 @@
         "php": "^8.2",
         "awcodes/filament-tiptap-editor": "^3.4",
         "filament/filament": "^3.2",
-        "laravel/framework": "^11.13",
+        "laravel/framework": "^11.14",
         "laravel/tinker": "^2.9",
         "pboivin/filament-peek": "^2.2"
     },
