@@ -2,20 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
+    /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'category_id',
@@ -45,16 +47,24 @@ class Post extends Model
         ];
     }
 
-    public function scopePublished($query)
+    /**
+     * Scope a query to only include published posts.
+     */
+    #[Scope]
+    protected function published(Builder $query): void
     {
-        return $query
+        $query
             ->whereNotNull('published_at')
             ->whereDate('published_at', '<=', Carbon::now());
     }
 
-    public function scopeFeatured($query)
+    /**
+     * Scope a query to only include featured posts.
+     */
+    #[Scope]
+    protected function featured(Builder $query): void
     {
-        return $query
+        $query
             ->published()
             ->where('is_featured', true);
     }
@@ -62,7 +72,7 @@ class Post extends Model
     /**
      * Get the category that owns the post.
      */
-    public function category(): BelongsTo
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

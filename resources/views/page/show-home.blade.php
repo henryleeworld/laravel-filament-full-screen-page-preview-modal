@@ -5,7 +5,7 @@
 
     <x-container>
         @if ($featured->isNotEmpty())
-            <h2 class="mt-8 text-2xl">Featured posts</h2>
+            <h2 class="mt-8 text-2xl">{{ __('Featured posts') }}</h2>
 
             <div class="mt-10 grid gap-8 grid-cols-1 lg:grid-cols-2">
                 @foreach ($featured as $post)

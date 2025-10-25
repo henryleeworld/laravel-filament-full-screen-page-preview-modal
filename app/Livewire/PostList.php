@@ -2,27 +2,20 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Category;
 use App\Models\Post;
+use Livewire\Component;
 
 class PostList extends Component
 {
     const ITEMS_PER_PAGE = 10;
 
-    // All categories
     public $categories;
-
-    // Variables keeping track of the current post query
     public $postCount;
     public $postChunks;
     public $queryCount = 0;
     public $currentChunk = 0;
-
-    // Currently selected category
     public $category;
-
-    // Currently selected order
     public $order = 'date_desc';
 
     protected $queryString = [
@@ -83,7 +76,6 @@ class PostList extends Component
 
     private function refreshPosts()
     {
-        // This will force the update of the `post-chunk` child components
         $this->queryCount++;
         $this->currentChunk = 0;
 

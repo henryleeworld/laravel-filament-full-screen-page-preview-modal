@@ -27,7 +27,7 @@ class Image
                 Select::make('ratio')
                     ->label(__('Ratio'))
                     ->options(static::getRatios())
-                    ->afterStateHydrated(fn ($state, $set) => $state || $set('ratio', '4-3')),
+                    ->afterStateHydrated(fn($state, $set) => $state || $set('ratio', '4-3')),
 
                 TextInput::make('alt')
                     ->label(__('Alt'))

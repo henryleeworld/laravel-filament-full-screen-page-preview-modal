@@ -1,8 +1,8 @@
 @props(['post'])
 
 @if ($post->published_at)
-    Published on {{ $post->published_at->format('M jS, Y') }} —
-    in <a href="{{ route('post.index', ['category' => $post->category->slug]) }}">{{ $post->category->name }}</a>
+    {{ __('Published on :published_on', ['published_on' => $post->published_at->format('Y-m-d')]) }} —
+    {!! __('in :in', ['in' => '<a href="' . route('post.index', ['category' => $post->category->slug]) . '">' . __($post->category->name) . '</a>']) !!}
 @else
-    [Not published]
+    {{ __('[Not published]') }}
 @endif

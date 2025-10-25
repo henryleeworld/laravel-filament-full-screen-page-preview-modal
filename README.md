@@ -1,4 +1,4 @@
-# Laravel 11 Filament 全螢幕頁面預覽互動視窗
+# Laravel 12 Filament 全螢幕頁面預覽互動視窗
 
 Filament 全螢幕頁面預覽互動視窗採用快速建立簡捷的 TALL（Tailwind CSS、Alpine.js、Laravel 和 Livewire）堆疊應用程式的工具組，可以在即時預覽的情況下直接進行設計和編輯，無需猜測效果。 
 
@@ -35,5 +35,5 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/qpvcmQD.png)
+![](https://i.imgur.com/X0dHbCK.gif)
 > 可以預覽頁面在不同螢幕寬度下的顯示樣式

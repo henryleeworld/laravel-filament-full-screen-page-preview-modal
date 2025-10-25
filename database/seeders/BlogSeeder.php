@@ -48,21 +48,18 @@ class BlogSeeder extends Seeder
         foreach ($this->categories as $category) {
             Category::create([
                 'name' => $category['name'],
-                'slug' => Str::slug($category['name']),
+                'slug' => Str::slug($category['name'], language: app()->getLocale()),
             ]);
         }
 
-        // Featured posts
         for ($i = 0; $i < 2; $i++) {
             $this->createPost(['is_featured' => 1]);
         }
 
-        // Published posts
         for ($i = 0; $i < 26; $i++) {
             $this->createPost();
         }
 
-        // Draft posts
         for ($i = 0; $i < 2; $i++) {
             $this->createPost(['published_at' => null]);
         }

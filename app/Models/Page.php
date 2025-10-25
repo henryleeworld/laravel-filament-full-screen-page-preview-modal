@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+    /** @use HasFactory<\Database\Factories\PageFactory> */
     use HasFactory;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'content',

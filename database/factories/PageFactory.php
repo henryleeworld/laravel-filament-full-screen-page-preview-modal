@@ -20,7 +20,7 @@ class PageFactory extends Factory
         $title = preg_replace('/\./', '', $this->faker->sentence(3));
 
         return [
-            'slug' => Str::slug($title),
+            'slug' => Str::slug($title, language: app()->getLocale()),
             'title' => $title,
             'content' => implode('', [
                 '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed tortor vitae sem cursus ullamcorper. In pellentesque purus et ante eleifend finibus. Fusce quis sapien nunc. Donec molestie arcu vel suscipit tincidunt. Nunc non neque risus. Aliquam fringilla sed quam eu condimentum. Nam viverra enim ut iaculis vulputate. Aenean quis laoreet mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas vel venenatis magna.</p>',

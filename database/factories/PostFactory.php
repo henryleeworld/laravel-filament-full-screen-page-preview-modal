@@ -20,7 +20,7 @@ class PostFactory extends Factory
         $title = preg_replace('/\./', '', $this->faker->sentence(6));
 
         return [
-            'slug' => Str::slug($title),
+            'slug' => Str::slug($title, language: app()->getLocale()),
             'title' => $title,
             'main_image_url' => 'https://picsum.photos/id/353/800/600',
             'category_id' => 1,
